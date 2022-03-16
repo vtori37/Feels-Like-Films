@@ -5,10 +5,12 @@
 
 // 
 
-// IMDB API Start
+// IMDB API Start ==============================================================================
 // IMDB API Key
 var imdbApiKey = "k_gto5fsb6";
+// inits genre selection
 var imdbSelGenre;
+// list of available genres
 var imdbGenres = [
     "action",
     "comedy",
@@ -21,6 +23,7 @@ var imdbGenres = [
     "thriller"
 ];
 
+// function for selecting genre based on weather condition ID
 var imdbGetGenre = function(weatherID) {
     switch (weatherID) {
         case '01d':
@@ -52,9 +55,11 @@ var imdbGetGenre = function(weatherID) {
             break;
     }
 
+    // runs the call for movie
     imdbGetMovie();
 };
 
+// function that calls the IMDB api
 var imdbGetMovie = function() {
     var apiUrl = "https://imdb-api.com/API/AdvancedSearch/" + imdbApiKey + "?title_type=feature&genres=" + imdbSelGenre + "&count=4";
     
@@ -62,6 +67,7 @@ var imdbGetMovie = function() {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
+                    // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {
                         imdbDispMovies(data.results[i]);
                     }
@@ -76,41 +82,50 @@ var imdbGetMovie = function() {
         });
 };
 
+// generates movie recommendation html for each result
 var imdbDispMovies = function(movieObj) {
+    // add to watchlist button
     var movieLiEl = document.createElement("li");
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.textContent = "Add to Watchlist";
     movieLiEl.appendChild(btnAddWatchEl);
 
+    // movie poster
     var moviePosterEl = document.createElement("img");
     moviePosterEl.className = "movie-poster";
     moviePosterEl.setAttribute("src", movieObj.image);
     moviePosterEl.setAttribute("width", "250");
     movieLiEl.appendChild(moviePosterEl);
 
+    // div box that holds text
     var descBoxEl = document.createElement("div");
     descBoxEl.className = "description-box";
     movieLiEl.appendChild(descBoxEl);
 
+    // movie title
     var movieTitleEl = document.createElement("h2");
     movieTitleEl.className = "movie-title";
     movieTitleEl.textContent = movieObj.title;
     descBoxEl.appendChild(movieTitleEl);
 
+    // movie genre and weather icon
     var movieGenreWeatherIconEl = document.createElement("h3");
     movieGenreWeatherIconEl.className = "movie-genre weather-icon";
     movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
     descBoxEl.appendChild(movieGenreWeatherIconEl);
 
+    // movie description/plot
     var movieDescEl = document.createElement("p");
     movieDescEl.className = "movie-description";
     movieDescEl.textContent = movieObj.plot;
     descBoxEl.appendChild(movieDescEl);
     
+    // appends to the movie recommendation ul in index.html
     $("#movie-recommendation").append(movieLiEl);
 };
 
+// hardcoded weather condition for now
 imdbGetGenre("01d");
-// IMDB API End
+// IMDB API End ======================================================================
 
 // 
