@@ -6,6 +6,7 @@
 // 
 
 // IMDB API Start
+// IMDB API Key
 var imdbApiKey = "k_gto5fsb6";
 var imdbSelGenre;
 var imdbGenres = [
@@ -50,16 +51,20 @@ var imdbGetGenre = function(weatherID) {
             imdbSelGenre = imdbGenres[8];
             break;
     }
+
+    imdbGetMovie();
 };
 
-var imdbGetApi = function() {
+var imdbGetMovie = function() {
     var apiUrl = "https://imdb-api.com/API/AdvancedSearch/" + imdbApiKey + "?title_type=feature&genres=" + imdbSelGenre + "&count=4";
     
     fetch(apiUrl)
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
-                    imdbDispMovies(data.results[0]);
+                    for (var i = 0; i < data.results.length; i++) {
+                        imdbDispMovies(data.results[i]);
+                    }
                 });
             }
             else {
@@ -72,19 +77,40 @@ var imdbGetApi = function() {
 };
 
 var imdbDispMovies = function(movieObj) {
-    var moviePoster = document.createElement("img");
-    moviePoster.setAttribute("src", movieObj.image);
-    moviePoster.setAttribute("width", "500");
-    $("#movieDisplay").append(moviePoster);
-    var movieTitle = document.createElement("p");
-    movieTitle.textContent = movieObj.title;
-    $("#movieDisplay").append(movieTitle);
-    var movieDesc = document.createElement("p");
-    movieDesc.textContent = movieObj.plot;
-    $("#movieDisplay").append(movieDesc);
+    var movieLiEl = document.createElement("li");
+    var btnAddWatchEl = document.createElement("button");
+    btnAddWatchEl.textContent = "Add to Watchlist";
+    movieLiEl.appendChild(btnAddWatchEl);
+
+    var moviePosterEl = document.createElement("img");
+    moviePosterEl.className = "movie-poster";
+    moviePosterEl.setAttribute("src", movieObj.image);
+    moviePosterEl.setAttribute("width", "250");
+    movieLiEl.appendChild(moviePosterEl);
+
+    var descBoxEl = document.createElement("div");
+    descBoxEl.className = "description-box";
+    movieLiEl.appendChild(descBoxEl);
+
+    var movieTitleEl = document.createElement("h2");
+    movieTitleEl.className = "movie-title";
+    movieTitleEl.textContent = movieObj.title;
+    descBoxEl.appendChild(movieTitleEl);
+
+    var movieGenreWeatherIconEl = document.createElement("h3");
+    movieGenreWeatherIconEl.className = "movie-genre weather-icon";
+    movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
+    descBoxEl.appendChild(movieGenreWeatherIconEl);
+
+    var movieDescEl = document.createElement("p");
+    movieDescEl.className = "movie-description";
+    movieDescEl.textContent = movieObj.plot;
+    descBoxEl.appendChild(movieDescEl);
+    
+    $("#movie-recommendation").append(movieLiEl);
 };
 
-imdbGetApi();
+imdbGetGenre("01d");
 // IMDB API End
 
 // 
