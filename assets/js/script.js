@@ -94,6 +94,7 @@ var imdbDispMovies = function(movieObj) {
     var moviePosterEl = document.createElement("img");
     moviePosterEl.className = "movie-poster";
     moviePosterEl.setAttribute("src", movieObj.image);
+    // I set an arbitary width to size the movie poster, can adjust as needed
     moviePosterEl.setAttribute("width", "250");
     movieLiEl.appendChild(moviePosterEl);
 
