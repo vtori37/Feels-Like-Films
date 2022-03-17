@@ -27,31 +27,44 @@ var imdbGenres = [
 var imdbGetGenre = function(weatherID) {
     switch (weatherID) {
         case '01d':
+        case '01n':
             imdbSelGenre = imdbGenres[0];
             break;
         case '02d':
+        case '02n':
             imdbSelGenre = imdbGenres[1];
             break;
         case '03d':
+        case '03n':
             imdbSelGenre = imdbGenres[2];
             break;
         case '04d':
+        case '04n':
             imdbSelGenre = imdbGenres[3];
             break;
         case '09d':
+        case '09n':
             imdbSelGenre = imdbGenres[4];
             break;
         case '10d':
+        case '10n':
             imdbSelGenre = imdbGenres[5];
             break;
+        case '11d':
         case '11d':
             imdbSelGenre = imdbGenres[6];
             break;
         case '13d':
+        case '13n':
             imdbSelGenre = imdbGenres[7];
             break;
         case '50d':
+        case '50n':
             imdbSelGenre = imdbGenres[8];
+            break;
+        default:
+            alert("Something broke!");
+            imdbSelGenre = imdbGenres[0];
             break;
     }
 
