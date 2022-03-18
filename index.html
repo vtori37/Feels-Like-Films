@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">]
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   <title>Dev-estate</title>
 </head>
 
@@ -21,14 +22,9 @@
       <icon></icon>
     </div>
 
-    <!-- search bar in here filter that is hidden but appears when needed -->
-    <div>
-      <input> Search Bar<input>
-    </div>
-
     <!-- Nav Bar -->
-    <nav>
-      <ul>
+    <nav class="col s12">
+      <ul class="col s6 offset-s6">
         <li>
           <a href="#location-input">Location</a>
         </li>
@@ -46,33 +42,35 @@
   </header>
 
   <!-- Location Input Modal -->
-  <section id="location-input">
-    <h1>Forecast</h1>
-    <input class="city" placeholder="Input your city." />
-    <input class="city-permisson" placeholder="Give us your permission to your location." />
-    <div class="weather-icon">
-      <h1></h1>
-    </div>
-  </section>
+  <main class="row col s12">
+    <section id="location-input" class="col s5">
+      <div></div>
+      <h1>Forecast</h1>
+      <input class="city" placeholder="Input your city." />
+      <input class="city-permisson" placeholder="Give us your permission to your location." />
+      <div class="weather-icon">
+        <h1></h1>
+      </div>
+    </section>
 
-  <!-- Weather Output and Weather/Genre Key -->
-  <section id="weather-genre-list">
-    <h1>Weather and Genres</h1>
-    <div>
-      <ul id="weather-list">
-        <li id="-icon" class="genre icon">Action</li>
-        <li id="-icon" class="genre icon">Comedy</li>
-        <li id="-icon" class="genre icon">Crime</li>
-        <li id="-icon" class="genre icon">Drama</li>
-        <li id="-icon" class="genre icon">Horror</li>
-        <li id="-icon" class="genre icon">Mystery</li>
-        <li id="-icon" class="genre icon">Romance</li>
-        <li id="-icon" class="genre icon">Sci Fi</li>
-        <li id="-icon" class="genre icon">Thriller</li>
-      </ul>
-    </div>
-  </section>
-
+    <!-- Weather Output and Weather/Genre Key -->
+    <section id="weather-genre-list" class="col s7">
+      <h1>Weather and Genres</h1>
+      <div>
+        <ul id="weather-list">
+          <li id="-icon" class="genre icon">Action</li>
+          <li id="-icon" class="genre icon">Comedy</li>
+          <li id="-icon" class="genre icon">Crime</li>
+          <li id="-icon" class="genre icon">Drama</li>
+          <li id="-icon" class="genre icon">Horror</li>
+          <li id="-icon" class="genre icon">Mystery</li>
+          <li id="-icon" class="genre icon">Romance</li>
+          <li id="-icon" class="genre icon">Sci Fi</li>
+          <li id="-icon" class="genre icon">Thriller</li>
+        </ul>
+      </div>
+    </section>
+  </main>
   <!-- Movie Recommendation -->
   <section id="recommendations">
     <h1>Movie Recommendations</h1>
@@ -120,6 +118,7 @@
   </footer>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
