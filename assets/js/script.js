@@ -8,6 +8,8 @@
 // IMDB API Start ==============================================================================
 // IMDB API Key
 var imdbApiKey = "k_gto5fsb6";
+// local storage movie lists
+var watchlistLS = [];
 // inits genre selection
 var imdbSelGenre;
 // list of available genres
@@ -95,11 +97,34 @@ var imdbGetMovie = function() {
         });
 };
 
+var imdbGetMovieID = function(movieID) {
+    var apiUrl = "https://imdb-api.com/API/Title/" + imdbApiKey + "/" + movieID;
+
+    fetch(apiUrl)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    imdbDispWatchlist(data);
+                });
+            }
+            else {
+                alert("Error: Movies not found");
+            }
+        })
+        .catch(function(error) {
+            alert("Unable to connect to IMDB");
+        });
+};
+
 // generates movie recommendation html for each result
 var imdbDispMovies = function(movieObj) {
-    // add to watchlist button
+    // create movie li element
     var movieLiEl = document.createElement("li");
+    
+    // add to watchlist button
     var btnAddWatchEl = document.createElement("button");
+    btnAddWatchEl.id = "add-to-watchlist";
+    btnAddWatchEl.setAttribute("movID", movieObj.id);
     btnAddWatchEl.textContent = "Add to Watchlist";
     movieLiEl.appendChild(btnAddWatchEl);
 
@@ -138,8 +163,102 @@ var imdbDispMovies = function(movieObj) {
     $("#movie-recommendation").append(movieLiEl);
 };
 
+var imdbDispWatchlist = function(movieObj) {
+    // create movie li element
+    var movieLiEl = document.createElement("li");
+    
+    // remove from watchlist button
+    var btnAddWatchEl = document.createElement("button");
+    btnAddWatchEl.id = "remove";
+    btnAddWatchEl.setAttribute("movID", movieObj.id);
+    btnAddWatchEl.textContent = "Remove";
+    movieLiEl.appendChild(btnAddWatchEl);
+
+    // movie poster
+    var moviePosterEl = document.createElement("img");
+    moviePosterEl.className = "movie-poster";
+    moviePosterEl.setAttribute("src", movieObj.image);
+    // I set an arbitary width to size the movie poster, can adjust as needed
+    moviePosterEl.setAttribute("width", "250");
+    movieLiEl.appendChild(moviePosterEl);
+
+    // div box that holds text
+    var descBoxEl = document.createElement("div");
+    descBoxEl.className = "description-box";
+    movieLiEl.appendChild(descBoxEl);
+
+    // movie title
+    var movieTitleEl = document.createElement("h2");
+    movieTitleEl.className = "movie-title";
+    movieTitleEl.textContent = movieObj.title;
+    descBoxEl.appendChild(movieTitleEl);
+
+    // movie genre and weather icon
+    var movieGenreWeatherIconEl = document.createElement("h3");
+    movieGenreWeatherIconEl.className = "movie-genre weather-icon";
+    movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
+    descBoxEl.appendChild(movieGenreWeatherIconEl);
+
+    // movie description/plot
+    var movieDescEl = document.createElement("p");
+    movieDescEl.className = "movie-description";
+    movieDescEl.textContent = movieObj.plot;
+    descBoxEl.appendChild(movieDescEl);
+    
+    // appends to the movie recommendation ul in index.html
+    $("#watch-list-titles").append(movieLiEl);
+};
+
+var imdbSaveWatchlist = function() {
+    localStorage.setItem("watchlist", JSON.stringify(watchlistLS));
+};
+
+var imdbLoadWatchlist = function() {
+    watchlistLS = JSON.parse(localStorage.getItem("watchlist"));
+    $("#watch-list-titles").html("");
+
+    if (!watchlistLS) {
+        watchlistLS = [];
+        return false;
+    }
+
+    for (var i = 0; i < watchlistLS.length; i++) {
+        imdbGetMovieID(watchlistLS[i]);
+    }
+};
+
+$("#movie-recommendation").on("click", "#add-to-watchlist", function() {
+    var movieID = $(this).attr("movID");
+    for (var i = 0; i < watchlistLS.length; i++) {
+        if (watchlistLS[i] === movieID) {
+            return false;
+        }
+    }
+    watchlistLS.push(movieID);
+    
+    // save to local storage
+    imdbSaveWatchlist();
+
+    // Refresh Watch List
+    imdbLoadWatchlist();
+});
+
+$("#watch-list-titles").on("click", "#remove", function() {
+    var movieID = $(this).attr("movID");
+    for (var i = 0; i < watchlistLS.length; i++) {
+        if (watchlistLS[i] === movieID) {
+            watchlistLS.splice(i, 1);
+        }
+    }
+
+    imdbSaveWatchlist();
+
+    imdbLoadWatchlist();
+})
+
 // hardcoded weather condition for now
 imdbGetGenre("01d");
+imdbLoadWatchlist();
 // IMDB API End ======================================================================
 
 // 
