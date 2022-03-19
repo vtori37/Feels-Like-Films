@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">]
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -15,34 +15,37 @@
 </head>
 
 <body>
-  <header>
+  <header class="row col s12">
 
     <!-- Logo -->
-    <div>
-      <icon></icon>
-    </div>
+
+
+
+
 
     <!-- Nav Bar -->
-    <nav class="col s12">
-      <ul class="col s6 offset-s6">
-        <li>
-          <a href="#location-input">Location</a>
-        </li>
-        <li>
-          <a href=" #weather-genre-list">Weather and Genre list</a>
-        </li>
-        <li>
-          <a href="#recommendations">Movie Recommendations</a>
-        </li>
-        <li>
-          <a href="#added-watchlist"> Watchlist</a>
-        </li>
-      </ul>
+    <nav class="">
+      <div class="nav-wrapper teal lighten-3 ">
+        <a href="#" class="brand-logo">Movie Forecase (working title)</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down col s6 offset-s6 tabs tabs-transparent">
+          <li class="tab">
+            <a href="#location-input">Location</a>
+          </li>
+          <li class="tab">
+            <a href=" #weather-genre-list">Weather and Genre list</a>
+          </li>
+          <li class="tab">
+            <a href="#recommendations">Movie Recommendations</a>
+          </li>
+          <li class="tab">
+            <a href="#added-watchlist"> Watchlist</a>
+          </li>
+        </ul>
     </nav>
   </header>
 
   <!-- Location Input Modal -->
-  <main class="row col s12">
+  <main class="container row col s12">
     <section id="location-input" class="col s5">
       <div></div>
       <h1>Forecast</h1>
@@ -72,7 +75,7 @@
     </section>
   </main>
   <!-- Movie Recommendation -->
-  <section id="recommendations">
+  <section class="container" id="recommendations">
     <h1>Movie Recommendations</h1>
     <ul class="movie-recommendation" id="movie-recommendation">
       <!--
@@ -90,13 +93,13 @@
   </section>
 
   <!-- Watch List -->
-  <section id="added-watchlist">
-    <h1 class="watch-list">Watch List</h1>
+  <section class="container" id="added-watchlist">
+    <h2 class="watch-list">Watch List</h2>
     <ul class="watch-list-titles">
       <li class="movie">
         <button class="remove"></button>
         <img class="movie-poster">
-        <h2 class="movie-title">Movie Title</h2>
+        <h3 class="movie-title">Movie Title</h3>
       </li>
     </ul>
   </section>
@@ -112,7 +115,7 @@
       <p class="author">Victoria</p>
     </div>
 
-    <h1 class="team-name"> &copy; Team Dev-estate</h1>
+    <h5 class="team-name"> &copy; Team Dev-estate</h5>
 
     <icon class="github"></icon>
   </footer>
