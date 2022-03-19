@@ -9,14 +9,136 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/stylesheet.css" />
+ <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   <title>Dev-estate</title>
 </head>
 
 <body>
+  <header>
+
+    <!-- Logo -->
+    <div>
+      <icon></icon>
+    </div>
+
+    <!-- search bar in here filter that is hidden but appears when needed -->
+    <div>
+      <input> Search Bar<input>
+    </div>
+
+    <!-- Nav Bar -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#location-input">Location</a>
+        </li>
+        <li>
+          <a href=" #weather-genre-list">Weather and Genre list</a>
+        </li>
+        <li>
+          <a href="#recommendations">Movie Recommendations</a>
+        </li>
+        <li>
+          <a href="#added-watchlist"> Watchlist</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container m-3 p-3">
+
+    <div class="row">
+      <div class="col-4">
+        <h2>Search for a City:</h2>
+        <!-- <div class=" flex-nowrap"> -->
+          <input id="city-input" type="text" class="form-control" placeholder="Username" aria-label="Username"
+            aria-describedby="addon-wrapping">
+        <!-- </div> -->
+
+        <button id="search-btn" type="button" class="btn btn-primary">Search</button>
+      </div>
+      <div class="col-8">
+        <div id="current-container" class="current-container row">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location Input Modal -->
+  <section id="location-input">
+    <h1>Forecast</h1>
+    <input class="city" placeholder="Input your city." />
+    <input class="city-permisson" placeholder="Give us your permission to your location." />
+    <div class="weather-icon">
+      <h1></h1>
+    </div>
+  </section>
+
+  <!-- Weather Output and Weather/Genre Key -->
+  <section id="weather-genre-list">
+    <h1>Weather and Genres</h1>
+    <div>
+      <ul id="weather-list">
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+        <li id="-icon" class="genre icon"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Movie Recommendation -->
+  <section id="recommendations">
+    <h1>Movie Recommendations</h1>
+    <ul class="movie-recommendation">
+      <li>
+        <button id="add-to-watchlist"></button>
+        <img class="movie-poster" />
+        <div class="description-box">
+          <h2 class="movie-title">Title</h2>
+          <h3 class="movie-genre weather-icon"></h3>
+          <p class="movie-description"></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Watch List -->
+  <section id="added-watchlist">
+    <h1 class="watch-list">Watch List</h1>
+    <ul class="watch-list-titles">
+      <li class="movie">
+        <button class="remove"></button>
+        <img class="movie-poster">
+        <h2 class="movie-title">Movie Title</h2>
+      </li>
+    </ul>
+  </section>
+
+  <!-- footer -->
+  <footer>
+
+    <div class="author-names">
+      <p class="author">Daniel</p>
+      <p class="author">Dylan</p>
+      <p class="author">Jeff</p>
+      <p class="author">Jonathan</p>
+      <p class="author">Victoria</p>
+    </div>
+
+    <h1 class="team-name"> &copy; Team Dev-estate</h1>
+
+    <icon class="github"></icon>
+  </footer>
 
 
-
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 

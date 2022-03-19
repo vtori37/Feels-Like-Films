@@ -55,7 +55,7 @@ function oneCallApi(lat, lon, cityName) {
         console.log(data);
 
         displayCurrent(data.current, cityName);
-        forecast(data.daily)
+       
       })
     })
 }
