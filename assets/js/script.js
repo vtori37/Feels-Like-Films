@@ -25,6 +25,8 @@ var imdbGenres = [
     "thriller"
 ];
 
+var imdbTempList = [];
+
 // function for selecting genre based on weather condition ID
 var imdbGetGenre = function(weatherID) {
     switch (weatherID) {
@@ -82,9 +84,14 @@ var imdbGetMovie = function() {
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(data) {
+                    imdbTempList = data.results;
+                    if (!data.results || data.results.length === 0) {
+                        $("#movie-recommendation").html("Could not find movies! Maximum searches reached for today.");
+                        return false;
+                    }
                     // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {
-                        imdbDispMovies(data.results[i]);
+                        imdbDispMovies(data.results[i], i);
                     }
                 });
             }
@@ -97,34 +104,15 @@ var imdbGetMovie = function() {
         });
 };
 
-var imdbGetMovieID = function(movieID) {
-    var apiUrl = "https://imdb-api.com/API/Title/" + imdbApiKey + "/" + movieID;
-
-    fetch(apiUrl)
-        .then(function(response) {
-            if (response.ok) {
-                response.json().then(function(data) {
-                    imdbDispWatchlist(data);
-                });
-            }
-            else {
-                alert("Error: Movies not found");
-            }
-        })
-        .catch(function(error) {
-            alert("Unable to connect to IMDB");
-        });
-};
-
 // generates movie recommendation html for each result
-var imdbDispMovies = function(movieObj) {
+var imdbDispMovies = function(movieObj, i) {
     // create movie li element
     var movieLiEl = document.createElement("li");
     
     // add to watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "add-to-watchlist";
-    btnAddWatchEl.setAttribute("movID", movieObj.id);
+    btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Add to Watchlist";
     movieLiEl.appendChild(btnAddWatchEl);
 
@@ -142,13 +130,13 @@ var imdbDispMovies = function(movieObj) {
     movieLiEl.appendChild(descBoxEl);
 
     // movie title
-    var movieTitleEl = document.createElement("h2");
+    var movieTitleEl = document.createElement("h3");
     movieTitleEl.className = "movie-title";
     movieTitleEl.textContent = movieObj.title;
     descBoxEl.appendChild(movieTitleEl);
 
     // movie genre and weather icon
-    var movieGenreWeatherIconEl = document.createElement("h3");
+    var movieGenreWeatherIconEl = document.createElement("h4");
     movieGenreWeatherIconEl.className = "movie-genre weather-icon";
     movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
     descBoxEl.appendChild(movieGenreWeatherIconEl);
@@ -163,14 +151,14 @@ var imdbDispMovies = function(movieObj) {
     $("#movie-recommendation").append(movieLiEl);
 };
 
-var imdbDispWatchlist = function(movieObj) {
+var imdbDispWatchlist = function(movieObj, i) {
     // create movie li element
     var movieLiEl = document.createElement("li");
     
     // remove from watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "remove";
-    btnAddWatchEl.setAttribute("movID", movieObj.id);
+    btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Remove";
     movieLiEl.appendChild(btnAddWatchEl);
 
@@ -188,13 +176,13 @@ var imdbDispWatchlist = function(movieObj) {
     movieLiEl.appendChild(descBoxEl);
 
     // movie title
-    var movieTitleEl = document.createElement("h2");
+    var movieTitleEl = document.createElement("h3");
     movieTitleEl.className = "movie-title";
     movieTitleEl.textContent = movieObj.title;
     descBoxEl.appendChild(movieTitleEl);
 
     // movie genre and weather icon
-    var movieGenreWeatherIconEl = document.createElement("h3");
+    var movieGenreWeatherIconEl = document.createElement("h4");
     movieGenreWeatherIconEl.className = "movie-genre weather-icon";
     movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
     descBoxEl.appendChild(movieGenreWeatherIconEl);
@@ -217,25 +205,30 @@ var imdbLoadWatchlist = function() {
     watchlistLS = JSON.parse(localStorage.getItem("watchlist"));
     $("#watch-list-titles").html("");
 
-    if (!watchlistLS) {
+    if (!watchlistLS || watchlistLS.length === 0) {
+        $("#watch-list-titles").html("No Movies!");
         watchlistLS = [];
         return false;
     }
 
     for (var i = 0; i < watchlistLS.length; i++) {
-        imdbGetMovieID(watchlistLS[i]);
+        imdbDispWatchlist(watchlistLS[i], i);
     }
 };
 
 $("#movie-recommendation").on("click", "#add-to-watchlist", function() {
     var movieID = $(this).attr("movID");
     for (var i = 0; i < watchlistLS.length; i++) {
-        if (watchlistLS[i] === movieID) {
+        if (watchlistLS[i].id === imdbTempList[movieID].id) {
             return false;
         }
     }
-    watchlistLS.push(movieID);
+    watchlistLS.push(imdbTempList[movieID]);
     
+    if (watchlistLS.length > 5) {
+        watchlistLS.shift();
+    }
+
     // save to local storage
     imdbSaveWatchlist();
 
@@ -245,11 +238,7 @@ $("#movie-recommendation").on("click", "#add-to-watchlist", function() {
 
 $("#watch-list-titles").on("click", "#remove", function() {
     var movieID = $(this).attr("movID");
-    for (var i = 0; i < watchlistLS.length; i++) {
-        if (watchlistLS[i] === movieID) {
-            watchlistLS.splice(i, 1);
-        }
-    }
+    watchlistLS.splice(movieID, 1);
 
     imdbSaveWatchlist();
 
