@@ -7,9 +7,16 @@ h1 {
   font-size: 40px;
 }
 h2 .title {
-  font-size: small;
+  font-size: 20px;
 }
 
+h3 {
+font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
 nav .brand-logo {
   font-size:20px;
   padding-left: 35px;
@@ -21,10 +28,7 @@ nav .brand-logo {
 }
 
 .movie-recommendation li {
-border-bottom: 3px solid teal;
+border-bottom: 2px solid teal;
 padding-bottom: 10px;
 }
 
-.row .col.offset-l0 {
-  margin-left: auto;
-}

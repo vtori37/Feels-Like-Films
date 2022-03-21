@@ -5,10 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> -->
-  <link rel="shortcut icon" type="image/png" href="/favicon.jpg" />
+  <link rel="icon" type="image/x-icon" href="./assets/Images/FEELS_LIKE_FILMS_.png">
   <link
     href="https://fonts.google.com/share?selection.family=Exo:wght@100;200;300;400%7CMontserrat:wght@200;300;400;500%7COpen%20Sans:wght@400;600;700"
     rel="stylesheet" />
@@ -18,13 +15,13 @@
 </head>
 
 <body>
-  <header class="row col s12">
+  <header class="row">
     <!-- Logo -->
 
     <!-- Nav Bar -->
-    <nav class="">
-      <div class="nav-wrapper teal lighten-3 ">
-        <a href="#"></a>
+    <nav class="nav-wrapper teal lighten-3  col s12">
+      <div class="">
+        <a href="#">FEELS LIKE FILMS</a>
         <ul id="nav-mobile" class="right col s8 offset-s2 tabs tabs-transparent">
           <li class="tab">
             <a href="#location-input">Location</a>
@@ -42,19 +39,32 @@
     </nav>
   </header>
 
-  <!-- Location Input Modal -->
+
+
   <main class="row col s12">
-    <section id="location-input" class="col s5">
-      <div></div>
-      <h1>Forecast</h1>
-      <input class="city" placeholder="Input your city." />
-      <input class="city-permisson" placeholder="Give us your permission to your location." />
-      <div class="weather-icon">
-        <h1></h1>
+    <!-- Location Input Modal  Weather Output and Weather/Genre Key -->
+    <section id="location-input" class="Forecast">
+      <div class="container row">
+        <div class="col s12">
+          <div class="col s4">
+            <h1>Search for a City:</h1>
+            <!-- <div class=" flex-nowrap"> -->
+            <input id="city-input" type="text" class="form-control" placeholder="" aria-label="Username"
+              aria-describedby="addon-wrapping">
+            <!-- </div> -->
+            <button id="search-btn" type="button" class="btn btn-primary">Search</button>
+          </div>
+
+          <div class="col s8">
+            <div id="current-container" class="current-container row"></div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- Weather Output and Weather/Genre Key -->
+
+    <!-- Weather Output and Weather/Genre Key
     <section id="weather-genre-list" class="col s7">
       <h1>Weather and Genres</h1>
       <div>
@@ -70,56 +80,63 @@
           <li id="-icon" class="genre icon">Thriller</li>
         </ul>
       </div>
-    </section>
+    </section>-->
   </main>
 
-  <!-- Movie Recommendation -->
-  <section class="container" id="recommendations">
-    <h1>Movie Recommendations</h1>
-    <ul class="movie-recommendation" id="movie-recommendation">
-      <!--
-      <li>
-        <button id="add-to-watchlist"></button>
-        <img class="movie-poster" />
-        <div class="description-box">
-          <h2 class="movie-title">Title</h2>
-          <h3 class="movie-genre weather-icon"></h3>
-          <p class="movie-description"></p>
-        </div>
-      </li>
-      -->
-    </ul>
-  </section>
+  <section class="row">
+    <!-- Movie Recommendation -->
+    <section class="container row" id="recommendations">
+      <div class="col s12">
+        <h1>Movie Recommendations</h1>
+        <ul class="movie-recommendation" id="movie-recommendation">
+          <!--
+          <li>
+            <button id="add-to-watchlist"></button>
+            <img class="movie-poster" />
+            <div class="description-box">
+              <h2 class="movie-title">Title</h2>
+              <h3 class="movie-genre weather-icon"></h3>
+              <p class="movie-description"></p>
+            </div>
+          </li>
+        -->
+        </ul>
+      </div>
+    </section>
 
-  <!-- Watch List -->
-  <section class="container" id="added-watchlist">
-    <h2 class="watch-list">Watch List</h2>
-    <ul class="watch-list-titles">
-      <li class="movie">
-        <button class="remove"></button>
-        <img class="movie-poster">
-        <h3 class="movie-title">Movie Title</h3>
-      </li>
-    </ul>
+    <!-- Watch List -->
+    <section class="container col s12" id="added-watchlist">
+      <h1 class="watch-list">Watch List</h1>
+      <p>Add up to 5 movies!</p>
+      <ul class="watch-list-titles">
+        <li class="movie">
+          <button class="remove"></button>
+          <img class="movie-poster">
+          <h2 class="movie-title">Movie Title</h2>
+        </li>
+      </ul>
+    </section>
   </section>
 
   <!-- footer -->
-  <footer>
+  <footer class="row">
 
-    <div class="author-names ">
+    <div class="author-names col-12s">
       <p class="author">Daniel</p>
       <p class="author">Dylan</p>
       <p class="author">Jeff</p>
       <p class="author">Jonathan</p>
       <p class="author">Victoria</p>
+
+
+      <h5 class="team-name"> &copy; Team Dev-estate</h5>
+
+      <icon class="github"></icon>
     </div>
-
-    <h5 class="team-name"> &copy; Team Dev-estate</h5>
-
-    <icon class="github"></icon>
   </footer>
 
-
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="assets/js/script.js"></script>
