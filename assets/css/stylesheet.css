@@ -1,3 +1,30 @@
+@import url("https://fonts.google.com/share?selection.family=Exo:wght@100;200;300;400%7CMontserrat:wght@200;300;400;500%7COpen%20Sans:wght@400;600;700");
+
+body {
+font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 40px;
+}
 h2 .title {
   font-size: small;
+}
+
+nav .brand-logo {
+  font-size:20px;
+  padding-left: 35px;
+}
+
+.tabs .tab a {
+  font-size: 17px;
+  padding:5px 10px;
+}
+
+.movie-recommendation li {
+border-bottom: 3px solid teal;
+padding-bottom: 10px;
+}
+
+.row .col.offset-l0 {
+  margin-left: auto;
 }
