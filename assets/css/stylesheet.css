@@ -1,1 +1,19 @@
 /* Css */
+
+.currentWrapper {
+    margin-left: 15px;
+}
+
+.nameIcon {
+    align-items: center;
+}
+
+.uvi {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px
+}
+
+.uvDiv {
+    align-items: center;
+}
