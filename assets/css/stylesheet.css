@@ -1,5 +1,22 @@
 /* Css */
 
+.btn {
+    margin: 10px 0 10px 0;
+    width: 100%;
+}
+
+#search-btn {
+    background-color: #e3242b;
+    border: gray;
+}
+
+#search-btn:hover {
+    background-color: #e3242b;
+    transform: scale(1.05) perspective(1px);
+    border: 2px solid black;
+    filter: brightness(150%);
+}
+
 .currentWrapper {
     margin-left: 15px;
 }
