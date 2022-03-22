@@ -59,6 +59,7 @@ function oneCallApi(lat, lon, cityName) {
         console.log(data);
 
         displayCurrent(data.current, cityName);
+        imdbGetGenre(data.current.weather[0].icon);
        
       })
     })
@@ -218,6 +219,8 @@ var imdbGetMovie = function() {
                         $("#movie-recommendation").html("Could not find movies! Maximum searches reached for today.");
                         return false;
                     }
+                    // clears movie recommendation
+                    $("#movie-recommendation").html("");
                     // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {
                         imdbDispMovies(data.results[i], i);
@@ -241,6 +244,7 @@ var imdbDispMovies = function(movieObj, i) {
     // add to watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "add-to-watchlist";
+    btnAddWatchEl.className = "button";
     btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Add to Watchlist";
     movieLiEl.appendChild(btnAddWatchEl);
@@ -287,6 +291,7 @@ var imdbDispWatchlist = function(movieObj, i) {
     // remove from watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "remove";
+    btnAddWatchEl.className = "button";
     btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Remove";
     movieLiEl.appendChild(btnAddWatchEl);
@@ -345,6 +350,9 @@ var imdbLoadWatchlist = function() {
     }
 };
 
+// adds movie to watchlist, last movie added goes to the bottom of the list
+// up to 5 movies can be saved, when a 6th movie is added, the oldest movie
+// positioned at the top of the list is removed
 $("#movie-recommendation").on("click", "#add-to-watchlist", function() {
     var movieID = $(this).attr("movID");
     for (var i = 0; i < watchlistLS.length; i++) {
@@ -374,8 +382,7 @@ $("#watch-list-titles").on("click", "#remove", function() {
     imdbLoadWatchlist();
 })
 
-// hardcoded weather condition for now
-imdbGetGenre("01d");
+// loads the watch list from localStorage
 imdbLoadWatchlist();
 // IMDB API End ======================================================================
 
