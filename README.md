@@ -20,7 +20,7 @@ Here is a link to the deployed website:
 * HTML5
 * CSS 
 * JS
-* Bootstrap
+* Materialize
 * Moment.js
 
 ## Team Dev-estate Members
