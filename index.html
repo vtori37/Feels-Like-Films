@@ -4,78 +4,87 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">]
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+>>>>>>> feature/style
   <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   <title>Dev-estate</title>
 </head>
 
 <body>
-  <header>
+  <header class="row col s12">
 
     <!-- Logo -->
-    <div>
-      <icon></icon>
-    </div>
 
-    <!-- search bar in here filter that is hidden but appears when needed -->
-    <div>
-      <input> Search Bar<input>
-    </div>
+
+
+
 
     <!-- Nav Bar -->
-    <nav>
-      <ul>
-        <li>
-          <a href="#location-input">Location</a>
-        </li>
-        <li>
-          <a href=" #weather-genre-list">Weather and Genre list</a>
-        </li>
-        <li>
-          <a href="#recommendations">Movie Recommendations</a>
-        </li>
-        <li>
-          <a href="#added-watchlist"> Watchlist</a>
-        </li>
-      </ul>
+    <nav class="">
+      <div class="nav-wrapper teal lighten-3 ">
+        <a href="#" class="brand-logo">Movie Forecase (working title)</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down col s6 offset-s6 tabs tabs-transparent">
+          <li class="tab">
+            <a href="#location-input">Location</a>
+          </li>
+          <li class="tab">
+            <a href=" #weather-genre-list">Weather and Genre list</a>
+          </li>
+          <li class="tab">
+            <a href="#recommendations">Movie Recommendations</a>
+          </li>
+          <li class="tab">
+            <a href="#added-watchlist"> Watchlist</a>
+          </li>
+        </ul>
     </nav>
   </header>
 
   <!-- Location Input Modal -->
-  <section id="location-input">
-    <h1>Forecast</h1>
-    <input class="city" placeholder="Input your city." />
-    <input class="city-permisson" placeholder="Give us your permission to your location." />
-    <div class="weather-icon">
-      <h1></h1>
-    </div>
-  </section>
+  <main class="container row col s12">
+    <section id="location-input" class="col s5">
+      <div></div>
+      <h1>Forecast</h1>
+      <input class="city" placeholder="Input your city." />
+      <input class="city-permisson" placeholder="Give us your permission to your location." />
+      <div class="weather-icon">
+        <h1></h1>
+      </div>
+    </section>
 
-  <!-- Weather Output and Weather/Genre Key -->
-  <section id="weather-genre-list">
-    <h1>Weather and Genres</h1>
-    <div>
-      <ul id="weather-list">
-        <li id="-icon" class="genre icon">Action</li>
-        <li id="-icon" class="genre icon">Comedy</li>
-        <li id="-icon" class="genre icon">Crime</li>
-        <li id="-icon" class="genre icon">Drama</li>
-        <li id="-icon" class="genre icon">Horror</li>
-        <li id="-icon" class="genre icon">Mystery</li>
-        <li id="-icon" class="genre icon">Romance</li>
-        <li id="-icon" class="genre icon">Sci Fi</li>
-        <li id="-icon" class="genre icon">Thriller</li>
-      </ul>
-    </div>
-  </section>
-
+    <!-- Weather Output and Weather/Genre Key -->
+    <section id="weather-genre-list" class="col s7">
+      <h1>Weather and Genres</h1>
+      <div>
+        <ul id="weather-list">
+          <li id="-icon" class="genre icon">Action</li>
+          <li id="-icon" class="genre icon">Comedy</li>
+          <li id="-icon" class="genre icon">Crime</li>
+          <li id="-icon" class="genre icon">Drama</li>
+          <li id="-icon" class="genre icon">Horror</li>
+          <li id="-icon" class="genre icon">Mystery</li>
+          <li id="-icon" class="genre icon">Romance</li>
+          <li id="-icon" class="genre icon">Sci Fi</li>
+          <li id="-icon" class="genre icon">Thriller</li>
+        </ul>
+      </div>
+    </section>
+  </main>
   <!-- Movie Recommendation -->
+<<<<<<< HEAD
   <section id="recommendations">
     <h2>Movie Recommendations</h2>
+=======
+  <section class="container" id="recommendations">
+    <h1>Movie Recommendations</h1>
+>>>>>>> feature/style
     <ul class="movie-recommendation" id="movie-recommendation">
       <!--
       <li>
@@ -92,15 +101,21 @@
   </section>
 
   <!-- Watch List -->
+<<<<<<< HEAD
   <section id="added-watchlist">
     <h2 class="watch-list">Watch List</h2>
     <p>Add up to 5 movies!</p>
     <ul class="watch-list-titles" id="watch-list-titles">
       <!--
+=======
+  <section class="container" id="added-watchlist">
+    <h2 class="watch-list">Watch List</h2>
+    <ul class="watch-list-titles">
+>>>>>>> feature/style
       <li class="movie">
         <button class="remove"></button>
         <img class="movie-poster">
-        <h2 class="movie-title">Movie Title</h2>
+        <h3 class="movie-title">Movie Title</h3>
       </li>
       -->
     </ul>
@@ -117,12 +132,13 @@
       <p class="author">Victoria</p>
     </div>
 
-    <h1 class="team-name"> &copy; Team Dev-estate</h1>
+    <h5 class="team-name"> &copy; Team Dev-estate</h5>
 
     <icon class="github"></icon>
   </footer>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
