@@ -1,3 +1,4 @@
+
 // Javascript
 
 var searchBtn = document.querySelector('#search-btn');
@@ -244,7 +245,7 @@ var imdbDispMovies = function(movieObj, i) {
     // add to watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "add-to-watchlist";
-    btnAddWatchEl.className = "button";
+    btnAddWatchEl.className = "button waves-effect waves-light btn";
     btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Add to Watchlist";
     movieLiEl.appendChild(btnAddWatchEl);
@@ -254,7 +255,7 @@ var imdbDispMovies = function(movieObj, i) {
     moviePosterEl.className = "movie-poster";
     moviePosterEl.setAttribute("src", movieObj.image);
     // I set an arbitary width to size the movie poster, can adjust as needed
-    moviePosterEl.setAttribute("width", "250");
+    moviePosterEl.setAttribute("width", "150");
     movieLiEl.appendChild(moviePosterEl);
 
     // div box that holds text
@@ -291,7 +292,7 @@ var imdbDispWatchlist = function(movieObj, i) {
     // remove from watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "remove";
-    btnAddWatchEl.className = "button";
+    btnAddWatchEl.className = "button waves-effect waves-light btn";
     btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Remove";
     movieLiEl.appendChild(btnAddWatchEl);
@@ -301,7 +302,7 @@ var imdbDispWatchlist = function(movieObj, i) {
     moviePosterEl.className = "movie-poster";
     moviePosterEl.setAttribute("src", movieObj.image);
     // I set an arbitary width to size the movie poster, can adjust as needed
-    moviePosterEl.setAttribute("width", "250");
+    moviePosterEl.setAttribute("width", "150");
     movieLiEl.appendChild(moviePosterEl);
 
     // div box that holds text
@@ -323,7 +324,7 @@ var imdbDispWatchlist = function(movieObj, i) {
 
     // movie description/plot
     var movieDescEl = document.createElement("p");
-    movieDescEl.className = "movie-description";
+    movieDescEl.className = "movie-description rounded";
     movieDescEl.textContent = movieObj.plot;
     descBoxEl.appendChild(movieDescEl);
     
@@ -387,3 +388,4 @@ imdbLoadWatchlist();
 // IMDB API End ======================================================================
 
 // 
+

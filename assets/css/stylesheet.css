@@ -1,34 +1,149 @@
 @import url("https://fonts.google.com/share?selection.family=Exo:wght@100;200;300;400%7CMontserrat:wght@200;300;400;500%7COpen%20Sans:wght@400;600;700");
-
+:root {
+  --main-yellow-orange: rgb(150, 107, 43);
+  --main-yellow: #f9a825ad; 
+}
 body {
 font-family: "Montserrat", sans-serif;
 }
 h1 {
-  font-size: 40px;
+  font-size: 35px;
 }
-h2 .title {
-  font-size: 20px;
+
+h2 {
+  font-size: 30px;
 }
 
 h3 {
-font-size: 30px;
+font-size: 20px;
 }
 
 h4 {
   font-size: 20px;
+}
+
+p {
+  font-size: 15px;
 }
 nav .brand-logo {
   font-size:20px;
   padding-left: 35px;
 }
 
+
+.gradient {
+  /* background: rgb(255,179,85);
+background: radial-gradient(circle, rgba(255,179,85,1) 15%, rgba(207,4,35,0.3533788515406162) 87%); */
+background: rgb(255,179,85);
+background: radial-gradient(circle, rgba(255,179,85,1) 52%, rgba(207,4,35,0.3533788515406162) 83%);
+}
+.col .row{
+  margin-right: 10px !important;
+} 
+
 .tabs .tab a {
   font-size: 17px;
   padding:5px 10px;
 }
 
-.movie-recommendation li {
-border-bottom: 2px solid teal;
-padding-bottom: 10px;
+.left-margin {
+  margin-left: 50px;
 }
 
+.footer-margin {
+  margin:30px;
+}
+
+.btn, .btn-large, .btn-small {
+  background-color: var(--main-yellow);
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: rgb(197, 140, 53);
+}
+
+#maiiiin{
+  background: rgb(255,179,85);
+  background: radial-gradient(circle, rgba(255,179,85,1) 15%, rgba(207,4,35,0.3533788515406162) 87%);
+}
+h2.movie-rec {
+  text-align: center;
+}
+
+h2.watch-list {
+  margin-top: 5px;
+}
+
+#recommendations {
+  margin-left: 30px;
+}
+
+#recommendations .row {
+  margin-right: 0;
+}
+
+#movie-rec-border {
+  border: 2px solid rgb(197, 140, 53);
+  border-radius: 10px;
+  box-shadow: 20px 20px var(--main-yellow);
+  padding: 10px 0 10px 0;
+  margin-right: 50px;
+  }
+
+.movie-recommendation li {
+border-bottom: 2px solid var(--main-yellow-orange);
+border-radius: 10px;
+padding: 15px 0 10px 0;
+}
+
+p.rounded {
+  border-bottom: 3px solid var(--main-yellow-orange);
+  border-radius: 5px;
+  margin-right: 30px;
+  padding-bottom: 5px;
+}
+
+p.movie-description {
+  margin-bottom: 5px;
+}
+
+
+#added-watchlist {
+  border: 2px solid rgb(197, 140, 53);
+  border-radius: 10px;
+  box-shadow: 20px 20px var(--main-yellow);
+  padding: 10px 0 10px 0;
+  margin-right: 50px;
+}
+
+.watchlist-border {
+  margin-left: 30px;
+}
+
+.watch-list {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.watch-list-p {
+  margin-top: 2px;
+  text-align: center;
+}
+
+
+/* Media Queries */
+
+/* @media #{$small-and-down} {
+  // styles for small screens and down
+}
+@media #{$medium-and-up} {
+  // styles for medium screens and larger
+}
+@media #{$medium-and-down} {
+  // styles for medium screens and down
+}
+@media #{$large-and-up} {
+  // styles for large screens and up
+}
+@media #{$extra-large-and-up} {
+  // styles for extra large screens and up
+} */
