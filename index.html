@@ -4,20 +4,186 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">]
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./assets/Images/FEELS_LIKE_FILMS_.png">
+  <link
+    href="https://fonts.google.com/share?selection.family=Exo:wght@100;200;300;400%7CMontserrat:wght@200;300;400;500%7COpen%20Sans:wght@400;600;700"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   <title>Dev-estate</title>
 </head>
 
 <body>
+  <header class="row">
+    <!-- Logo -->
+
+    <!--  Nav Bar -->
+    <nav class="nav-wrapper  yellow darken-3  col s12">
+      <!--red lighten-2 -->
+      <div class="">
+        <a href="#">FEELS LIKE FILMS</a>
+        <a href="#" class="sidenav-trigger" data-target="small-screen-nav">
+          <i class="material-icon">Menu</i>
+        </a>
+        <ul id="nav-mobile" class="right col s8 offset-s2 hide-on-med-and-down">
+          <li class="tab">
+            <a href="#location-input">Location</a>
+          </li>
+          <li class="tab">
+            <a href=" #weather-genre-list">Weather and Genre list</a>
+          </li>
+          <li class="tab">
+            <a href="#recommendations">Movie Recommendations</a>
+          </li>
+          <li class="tab">
+            <a href="#added-watchlist"> Watchlist</a>
+          </li>
+        </ul>
+    </nav>
+
+    <ul id="small-screen-nav" class="sidenav">
+      <li class="tab">
+        <a href="#location-input">Location</a>
+      </li>
+      <li class="tab">
+        <a href=" #weather-genre-list">Weather and Genre list</a>
+      </li>
+      <li class="tab">
+        <a href="#recommendations">Movie Recommendations</a>
+      </li>
+      <li class="tab">
+        <a href="#added-watchlist"> Watchlist</a>
+      </li>
+    </ul>
+
+
+  </header>
 
 
 
+  <main class="row col s12 left-margin line">
+    <!-- Location Input Modal  Weather Output and Weather/Genre Key -->
+    <div class="col s12">
+      <section id="location-input" class="Forecast">
+        <div class="container row">
+          <div class="col s3">
+            <h1>Search for a City:</h1>
+            <!-- <div class=" flex-nowrap"> -->
+            <input id="city-input" type="text" class="form-control" placeholder="" aria-label="Username"
+              aria-describedby="addon-wrapping">
+            <!-- </div> -->
+            <button id="search-btn" type="button" class="btn">Search</button>
+          </div>
+
+          <div class="col s5">
+            <div id="current-container" class="current-container row"></div>
+          </div>
+
+          <!-- Weather Output and Weather/Genre Chart -->
+          <section id="weather-genre-list" class="col s4">
+            <h2>Weather and Genres</h2>
+            <ul id="weather-list">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Night</th>
+                    <th>Movie Genre</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/01d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/01n@2x.png"></td>
+                    <td><img src="./assets/images/Action.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/02d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/02n@2x.png"></td>
+                    <td><img src="./assets/images/Comedy.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/03d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/03n@2x.png"></td>
+                    <td><img src="./assets/images/Crime.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/04d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/04n@2x.png"></td>
+                    <td><img src="./assets/images/Drama.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/11d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/11n@2x.png"></td>
+                    <td><img src="./assets/images/Horror.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/10d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/10n@2x.png"></td>
+                    <td><img src="./assets/images/Mystery.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/09d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/09n@2x.png"></td>
+                    <td><img src="./assets/images/Romance.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/13d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/13n@2x.png"></td>
+                    <td><img src="./assets/images/Sci-Fi.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                  <tr>
+                    <td><img src="http://openweathermap.org/img/wn/50d@2x.png"></td>
+                    <td><img src="http://openweathermap.org/img/wn/50n@2x.png"></td>
+                    <td><img src="./assets/images/Thriller.PNG" alt="" height='100' width='100'/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="container left-margin">
+    <!-- Movie Recommendation -->
+    <section class="row movie-rec-border col s12" id="recommendations">
+        <h2 class="movie-rec" id="movie-rec">Movie Recommendations</h2>
+      <div class="col s12 ">
+        <ul class="movie-recommendation" id="movie-recommendation"></ul>
+      </div>
+    </section>
+
+    <!-- Watch List -->
+    <section class="row watchlist-border col s12" id="added-watchlist">
+        <h2 class="watch-list">Watch List</h2>
+        <p class="watch-list-p">Add up to 5 movies!</p>
+        <div class="col s12">
+          <ul class="watch-list-titles" id="watch-list-titles"></ul>
+        </div>
+    </section>
+  </section>
+
+  <!-- footer -->
+  <footer class="row footer-margin center-align">
+
+    <div class="author-names col-12s">
+      <h5 class="team-name"> &copy; Team Dev-estate</h5>
+      <p class="author">Daniel</p>
+      <p class="author">Dylan</p>
+      <p class="author">Jeff</p>
+      <p class="author">Jonathan</p>
+      <p class="author">Victoria</p>
+      <icon class="github"></icon>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
-
-</html>
