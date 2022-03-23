@@ -200,7 +200,6 @@ var imdbGetGenre = function(weatherID) {
             imdbSelGenre = imdbGenres[8];
             break;
         default:
-            alert("Something broke!");
             imdbSelGenre = imdbGenres[0];
             break;
     }
@@ -228,7 +227,7 @@ var imdbGetMovie = function(weatherID) {
                     let nameGenre = imdbSelGenre[0].toUpperCase() + imdbSelGenre.slice(1);
 
                     // changes movie rec heading
-                    $("#movie-rec").html("Feels like " + nameGenre + "! <img src='http://openweathermap.org/img/wn/" + weatherID + "@2x.png' width='45'/>");
+                    $("#movie-rec").html("Feels like " + nameGenre + "! <img src='http://openweathermap.org/img/wn/" + weatherID + "@2x.png' width='45' alt='weather icon'/>");
 
                     // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {
@@ -237,11 +236,11 @@ var imdbGetMovie = function(weatherID) {
                 });
             }
             else {
-                alert("Error: Movies not found");
+                $("#movie-recommendation").html("Error: Movies not found");
             }
         })
         .catch(function(error) {
-            alert("Unable to connect to IMDB");
+            $("#movie-recommendation").html("Unable to connect to IMDB");
         });
 };
 
@@ -272,6 +271,7 @@ var imdbDispMovies = function(movieObj, i) {
       var moviePosterEl = document.createElement("img");
       moviePosterEl.className = "movie-poster col s2 offset-s1";
       moviePosterEl.setAttribute("src", movieObj.image);
+      moviePosterEl.setAttribute("alt", "movie poster");
       // I set an arbitary width to size the movie poster, can adjust as needed
       moviePosterEl.setAttribute("width", "150");
       movDivEl.appendChild(moviePosterEl);
@@ -329,6 +329,7 @@ var imdbDispWatchlist = function(movieObj, i) {
     var moviePosterEl = document.createElement("img");
     moviePosterEl.className = "movie-poster col s2 offset-s1";
     moviePosterEl.setAttribute("src", movieObj.image);
+    moviePosterEl.setAttribute("alt", "movie poster");
     // I set an arbitary width to size the movie poster, can adjust as needed
     moviePosterEl.setAttribute("width", "150");
     movDivEl.appendChild(moviePosterEl);
