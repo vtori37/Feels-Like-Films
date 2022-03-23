@@ -162,6 +162,7 @@ var imdbTempList = [];
 
 // function for selecting genre based on weather condition ID
 var imdbGetGenre = function(weatherID) {
+    $("#movie-rec").html("Searching!");
     switch (weatherID) {
         case '01d':
         case '01n':
