@@ -139,6 +139,8 @@ searchBtn.addEventListener('click', inputHandler);
 // IMDB API Start ==============================================================================
 // IMDB API Key
 var imdbApiKey = "k_gto5fsb6";
+// alt IMDB API KEY
+// var imdbApiKey = "k_lnpfcic4";
 // local storage movie lists
 var watchlistLS = [];
 // inits genre selection
@@ -204,11 +206,11 @@ var imdbGetGenre = function(weatherID) {
     }
 
     // runs the call for movie
-    imdbGetMovie();
+    imdbGetMovie(weatherID);
 };
 
 // function that calls the IMDB api
-var imdbGetMovie = function() {
+var imdbGetMovie = function(weatherID) {
     var apiUrl = "https://imdb-api.com/API/AdvancedSearch/" + imdbApiKey + "?title_type=feature&genres=" + imdbSelGenre + "&count=4";
     
     fetch(apiUrl)
@@ -222,6 +224,12 @@ var imdbGetMovie = function() {
                     }
                     // clears movie recommendation
                     $("#movie-recommendation").html("");
+
+                    let nameGenre = imdbSelGenre[0].toUpperCase() + imdbSelGenre.slice(1);
+
+                    // changes movie rec heading
+                    $("#movie-rec").html("Feels like " + nameGenre + "! <img src='http://openweathermap.org/img/wn/" + weatherID + "@2x.png' width='45'/>");
+
                     // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {
                         imdbDispMovies(data.results[i], i);
@@ -239,47 +247,57 @@ var imdbGetMovie = function() {
 
 // generates movie recommendation html for each result
 var imdbDispMovies = function(movieObj, i) {
-    // create movie li element
-    var movieLiEl = document.createElement("li");
-    
-    // add to watchlist button
-    var btnAddWatchEl = document.createElement("button");
-    btnAddWatchEl.id = "add-to-watchlist";
-    btnAddWatchEl.className = "button waves-effect waves-light btn";
-    btnAddWatchEl.setAttribute("movID", i);
-    btnAddWatchEl.textContent = "Add to Watchlist";
-    movieLiEl.appendChild(btnAddWatchEl);
-
-    // movie poster
-    var moviePosterEl = document.createElement("img");
-    moviePosterEl.className = "movie-poster";
-    moviePosterEl.setAttribute("src", movieObj.image);
-    // I set an arbitary width to size the movie poster, can adjust as needed
-    moviePosterEl.setAttribute("width", "150");
-    movieLiEl.appendChild(moviePosterEl);
-
-    // div box that holds text
-    var descBoxEl = document.createElement("div");
-    descBoxEl.className = "description-box";
-    movieLiEl.appendChild(descBoxEl);
-
-    // movie title
-    var movieTitleEl = document.createElement("h3");
-    movieTitleEl.className = "movie-title";
-    movieTitleEl.textContent = movieObj.title;
-    descBoxEl.appendChild(movieTitleEl);
-
-    // movie genre and weather icon
-    var movieGenreWeatherIconEl = document.createElement("h4");
-    movieGenreWeatherIconEl.className = "movie-genre weather-icon";
-    movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
-    descBoxEl.appendChild(movieGenreWeatherIconEl);
-
-    // movie description/plot
-    var movieDescEl = document.createElement("p");
-    movieDescEl.className = "movie-description";
-    movieDescEl.textContent = movieObj.plot;
-    descBoxEl.appendChild(movieDescEl);
+      // create movie li element
+      var movieLiEl = document.createElement("li");
+      movieLiEl.className = "movieLi";
+  
+      var movieDivEl = document.createElement("div");
+      movieDivEl.className = "card";
+      movieLiEl.appendChild(movieDivEl);
+      
+      // remove from watchlist button
+      var btnAddWatchEl = document.createElement("button");
+      btnAddWatchEl.id = "add-to-watchlist";
+      btnAddWatchEl.className = "button waves-effect waves-light btn card-title";
+      btnAddWatchEl.setAttribute("movID", i);
+      btnAddWatchEl.textContent = "Add to Watchlist";
+      movieDivEl.appendChild(btnAddWatchEl);
+  
+      // div box that holds movie poster and movie text
+      var movDivEl = document.createElement("div");
+      movDivEl.className = "row";
+      movieDivEl.appendChild(movDivEl);
+  
+      // movie poster
+      var moviePosterEl = document.createElement("img");
+      moviePosterEl.className = "movie-poster col s2 offset-s1";
+      moviePosterEl.setAttribute("src", movieObj.image);
+      // I set an arbitary width to size the movie poster, can adjust as needed
+      moviePosterEl.setAttribute("width", "150");
+      movDivEl.appendChild(moviePosterEl);
+  
+      // div box that holds text
+      var descBoxEl = document.createElement("div");
+      descBoxEl.className = "col s8";
+      movDivEl.appendChild(descBoxEl);
+  
+      // movie title
+      var movieTitleEl = document.createElement("h3");
+      movieTitleEl.className = "movie-title";
+      movieTitleEl.textContent = movieObj.title;
+      descBoxEl.appendChild(movieTitleEl);
+  
+      // movie genre and weather icon
+      var movieGenreWeatherIconEl = document.createElement("h4");
+      movieGenreWeatherIconEl.className = "movie-genre weather-icon";
+      movieGenreWeatherIconEl.textContent = movieObj.genres;
+      descBoxEl.appendChild(movieGenreWeatherIconEl);
+  
+      // movie description/plot
+      var movieDescEl = document.createElement("p");
+      movieDescEl.className = "movie-description rounded";
+      movieDescEl.textContent = movieObj.plot;
+      descBoxEl.appendChild(movieDescEl);
     
     // appends to the movie recommendation ul in index.html
     $("#movie-recommendation").append(movieLiEl);
@@ -288,27 +306,37 @@ var imdbDispMovies = function(movieObj, i) {
 var imdbDispWatchlist = function(movieObj, i) {
     // create movie li element
     var movieLiEl = document.createElement("li");
+    movieLiEl.className = "movieLi";
+
+    var movieDivEl = document.createElement("div");
+    movieDivEl.className = "card";
+    movieLiEl.appendChild(movieDivEl);
     
     // remove from watchlist button
     var btnAddWatchEl = document.createElement("button");
     btnAddWatchEl.id = "remove";
-    btnAddWatchEl.className = "button waves-effect waves-light btn";
+    btnAddWatchEl.className = "button waves-effect waves-light btn card-title";
     btnAddWatchEl.setAttribute("movID", i);
     btnAddWatchEl.textContent = "Remove";
-    movieLiEl.appendChild(btnAddWatchEl);
+    movieDivEl.appendChild(btnAddWatchEl);
+
+    // div box that holds movie poster and movie text
+    var movDivEl = document.createElement("div");
+    movDivEl.className = "row";
+    movieDivEl.appendChild(movDivEl);
 
     // movie poster
     var moviePosterEl = document.createElement("img");
-    moviePosterEl.className = "movie-poster";
+    moviePosterEl.className = "movie-poster col s2 offset-s1";
     moviePosterEl.setAttribute("src", movieObj.image);
     // I set an arbitary width to size the movie poster, can adjust as needed
     moviePosterEl.setAttribute("width", "150");
-    movieLiEl.appendChild(moviePosterEl);
+    movDivEl.appendChild(moviePosterEl);
 
     // div box that holds text
     var descBoxEl = document.createElement("div");
-    descBoxEl.className = "description-box";
-    movieLiEl.appendChild(descBoxEl);
+    descBoxEl.className = "col s8";
+    movDivEl.appendChild(descBoxEl);
 
     // movie title
     var movieTitleEl = document.createElement("h3");
@@ -319,7 +347,7 @@ var imdbDispWatchlist = function(movieObj, i) {
     // movie genre and weather icon
     var movieGenreWeatherIconEl = document.createElement("h4");
     movieGenreWeatherIconEl.className = "movie-genre weather-icon";
-    movieGenreWeatherIconEl.textContent = movieObj.genres + " (Weather Icon Placeholder)";
+    movieGenreWeatherIconEl.textContent = movieObj.genres;
     descBoxEl.appendChild(movieGenreWeatherIconEl);
 
     // movie description/plot

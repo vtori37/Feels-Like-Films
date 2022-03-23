@@ -101,55 +101,22 @@
     </div>
   </main>
 
-  <section id="movie-rec-border" class="row left-margin">
+  <section class="container left-margin">
     <!-- Movie Recommendation -->
-    <section class="container row" id="recommendations">
-      <h2 class="movie-rec">Movie Recommendations</h2>
+    <section class="row movie-rec-border col s12" id="recommendations">
+        <h2 class="movie-rec" id="movie-rec">Movie Recommendations</h2>
       <div class="col s12 ">
-        <ul class="movie-recommendation" id="movie-recommendation">
-          <!--
-          <li>
-            <button id="add-to-watchlist"></button>
-            <img class="movie-poster" />
-            <div class="description-box">
-              <h2 class="movie-title">Title</h2>
-              <h3 class="movie-genre weather-icon"></h3>
-              <p class="movie-description"></p>
-            </div>
-          </li>
-        -->
-        </ul>
+        <ul class="movie-recommendation" id="movie-recommendation"></ul>
       </div>
     </section>
 
     <!-- Watch List -->
-    <!-- <section class="container col s12" id="added-watchlist">
-      <h1 class="watch-list">Watch List</h1>
-      <p>Add up to 5 movies!</p>
-      <ul class="watch-list-titles">
-        <li class="movie">
-          <button class="remove"></button>
-          <img class="movie-poster">
-          <h2 class="movie-title">Movie Title</h2>
-        </li>
-      </ul>
-    </section> -->
-
-    <!-- Watch List -->
-    <section id="added-watchlist">
-      <div class="watchlist-border">
+    <section class="row watchlist-border col s12" id="added-watchlist">
         <h2 class="watch-list">Watch List</h2>
         <p class="watch-list-p">Add up to 5 movies!</p>
-        <ul class="watch-list-titles" id="watch-list-titles">
-          <!--
-    <li class="movie">
-      <button class="remove"></button>
-      <img class="movie-poster">
-      <h2 class="movie-title">Movie Title</h2>
-    </li>
-    -->
-        </ul>
-      </div>
+        <div class="col s12">
+          <ul class="watch-list-titles" id="watch-list-titles"></ul>
+        </div>
     </section>
   </section>
 
@@ -167,7 +134,6 @@
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
