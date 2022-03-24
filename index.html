@@ -68,61 +68,114 @@
   </hero>
 
 
-  <main class="row col s12 left-margin line">
+  <article class="row line">
     <!-- Location Input Modal  Weather Output and Weather/Genre Key -->
-    <div class="col s12">
+    <div class=" col s12 article-margin">
       <section id="location-input" class="Forecast">
-        <div class="container row">
-          <div class="col s3">
-            <h1>Search for a City:</h1>
-            <!-- <div class=" flex-nowrap"> -->
-            <input id="city-input" type="text" class="form-control" placeholder="" aria-label="Username"
-              aria-describedby="addon-wrapping">
-            <!-- </div> -->
+
+        <div class="col s5">
+          <h1>Search for a City:</h1>
+          <input id="city-input" type="text" class="form-control" placeholder="" aria-label="Username"
+            aria-describedby="addon-wrapping">
+          <div>
             <button id="search-btn" type="button" class="btn">Search</button>
           </div>
-
-          <div class="col s5">
-            <div id="current-container" class="current-container row"></div>
-          </div>
-
-          <!-- Weather Output and Weather/Genre Key -->
-          <section id="weather-genre-list" class="col s4">
-            <h2>Weather and Genres</h2>
-            <ul id="weather-list">
-              <li id="-icon" class="genre icon">Action</li>
-              <li id="-icon" class="genre icon">Comedy</li>
-              <li id="-icon" class="genre icon">Crime</li>
-              <li id="-icon" class="genre icon">Drama</li>
-              <li id="-icon" class="genre icon">Horror</li>
-              <li id="-icon" class="genre icon">Mystery</li>
-              <li id="-icon" class="genre icon">Romance</li>
-              <li id="-icon" class="genre icon">Sci Fi</li>
-              <li id="-icon" class="genre icon">Thriller</li>
-            </ul>
-          </section>
         </div>
+        <div class="col s1"></div>
+        <div class="col s6 article-margin">
+          <div id="current-container" class="current-container row"></div>
+        </div>
+
       </section>
     </div>
-  </main>
+  </article>
 
-  <section class="container left-margin">
-    <!-- Movie Recommendation -->
-    <section class="row movie-rec-border col s12" id="recommendations">
-      <h2 class="movie-rec" id="movie-rec">Movie Recommendations</h2>
-      <div class="col s12 ">
-        <ul class="movie-recommendation" id="movie-recommendation"></ul>
-      </div>
-    </section>
+  <section class="row">
+    <div clsas="col s12 article-margin">
+      <main class="col s7">
+        <section>
+          <!-- Movie Recommendation -->
+          <section class="row movie-rec-border col s12" id="recommendations">
+            <h2 class="movie-rec" id="movie-rec">Movie Recommendations</h2>
+            <div class="col s12 ">
+              <ul class="movie-recommendation" id="movie-recommendation"></ul>
+            </div>
+          </section>
 
-    <!-- Watch List -->
-    <section class="row watchlist-border col s12" id="added-watchlist">
-      <h2 class="watch-list">Watch List</h2>
-      <p class="watch-list-p">Add up to 5 movies!</p>
-      <div class="col s12">
-        <ul class="watch-list-titles" id="watch-list-titles"></ul>
-      </div>
-    </section>
+          <!-- Watch List -->
+          <section class="row watchlist-border col s12" id="added-watchlist">
+            <h2 class="watch-list">Watch List</h2>
+            <p class="watch-list-p">Add up to 5 movies!</p>
+            <div class="col s12">
+              <ul class="watch-list-titles" id="watch-list-titles"></ul>
+            </div>
+          </section>
+        </section>
+      </main>
+      <div class="col s1"></div>
+
+      <!-- Weather Output and Weather/Genre Key -->
+      <aside id="weather-genre-list" class="col s4">
+        <h2>Weather and Genres</h2>
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Night</th>
+              <th>Movie Genre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/01d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/01n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Action.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/02d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/02n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Comedy.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/03d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/03n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Crime.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/04d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/04n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Drama.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/11d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/11n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Horror.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/10d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/10n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Mystery.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/09d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/09n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Romance.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/13d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/13n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Sci-Fi.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+            <tr>
+              <td><img src="http://openweathermap.org/img/wn/50d@2x.png" width="50"></td>
+              <td><img src="http://openweathermap.org/img/wn/50n@2x.png" width="50"></td>
+              <td><img src="./assets/images/Thriller.PNG" alt="" height='50' width='50' /></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- </ul> -->
+      </aside>
+    </div>
   </section>
 
   <!-- footer -->
@@ -139,14 +192,15 @@
     </div>
   </footer>
 
-  <<<<<<< HEAD=======<script src="https://code.jquery.com/jquery-3.4.1.min.js">
-    </script>
-    >>>>>>> feature/style
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/script-css.js"></script>
+  <!-- <<<<<<< HEAD======= -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+  </script>
+  <!-- >>>>>>> feature/style -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script-css.js"></script>
 </body>
 
 </html>

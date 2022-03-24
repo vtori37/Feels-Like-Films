@@ -67,9 +67,6 @@ h1.text-align {
   margin-top: 10px 0 10px ;
   padding: 0px 0 3px 0px;
 }
-.col .row{
-  margin-right: 10px !important;
-} 
 
 .tabs .tab a {
   font-size: 17px;
@@ -77,18 +74,36 @@ h1.text-align {
 }
 
 
-.left-margin {
-  margin-left: 50px;
-  max-width: 1000px;
-  margin: auto;
-  background: white;
-  padding: 10px;
-}
-
 .footer-margin {
   margin:30px;
 }
 
+
+article.row.line {
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+main {
+  width: 60%;
+}
+aside {
+  width: 40%;
+  padding-left: .5rem;
+  margin-left: .5rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px var(--main-yellow-orange);
+  color: var(--main-yellow-orange);
+  text-align: center;
+}
+
+aside > p {
+  margin: .5rem;
+}
+
+p {
+  font-family: 'Fira Sans', sans-serif;
+}
 .btn, .btn-large, .btn-small {
   background-color: var(--main-yellow);
 }
@@ -158,7 +173,7 @@ p.movie-description {
   border-radius: 10px;
   box-shadow: 20px 20px var(--main-yellow);
   padding: 10px 0 10px 0;
-  margin-right: 50px;
+  margin-left: 30px;
 }
 
 .watchlist-border {
