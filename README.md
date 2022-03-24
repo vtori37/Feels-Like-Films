@@ -22,9 +22,9 @@ Here is a link to the deployed website:
 * JS 
 * Materialize CSS Framework
 * Moment.js
-* [Open Weather Map API](#https://openweathermap.org/api)
-* [IMDB API](#https://imdb-api.com/)
-* [Creative Fabrica](#https://www.creativefabrica.com/product/movie-genres-rgb-color-icons-set/)
+* [Open Weather Map API](https://openweathermap.org/api)
+* [IMDB API](https://imdb-api.com/)
+* [Creative Fabrica](https://www.creativefabrica.com/product/movie-genres-rgb-color-icons-set/)
 
 
 ## Team Dev-estate Members
