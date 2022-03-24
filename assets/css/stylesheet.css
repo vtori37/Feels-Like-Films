@@ -36,7 +36,11 @@ nav .brand-logo {
 }
 
 .header-title {
-  font-size:25px;
+font-size: 20px;
+}
+
+nav ul a {
+  font-size: 18px;
   font-weight: 100;
 }
 
@@ -98,7 +102,7 @@ main {
 }
 aside {
 
-  color: var(--main-yellow-orange);
+  color: #99630bec;
   text-align: center;
 }
 
@@ -206,6 +210,22 @@ p.movie-description {
 /* Media Queries */
 
 
+@media only screen and (max-width: 1043px){
+.hearder-title {
+font-size: auto;
+}
+.row .col .offset-s2 {
+width: auto;
+}
+}
+@media only screen and (min-width: 1043px){
+.hearder-title {
+font-size: 17px;
+}
+.row .col .offset-s2 {
+width: auto;
+}
+}
 @media only screen and (max-width: 992px){
   /* // styles for small screens and down */
   .modal {
