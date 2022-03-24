@@ -114,6 +114,7 @@ p.description {
 .modal {
   max-height: 80%;
   max-width: 20%;
+  background-color: rgba(226, 202, 170, 0.932);
 }
 .btn, .btn-large, .btn-small {
   background-color: var(--main-yellow);
@@ -208,7 +209,7 @@ p.movie-description {
 @media only screen and (max-width: 992px){
   /* // styles for small screens and down */
   .modal {
-    max-height: 100%;
+    max-height: 80%;
     max-width:50%;
   }
 
