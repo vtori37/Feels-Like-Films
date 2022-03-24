@@ -31,7 +31,7 @@ function getApi(cityName) {
 
   console.log(cityName);
 
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=42315a92a191c90b4007c062b41a8de1';
+  var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=42315a92a191c90b4007c062b41a8de1';
 
   fetch(requestUrl)
     .then(function (response) {
@@ -84,7 +84,7 @@ var displayCurrent = function (current, cityName) {
   nameIcon.appendChild(city);
 
   var iconDisplay = document.createElement('img');
-  iconDisplay.setAttribute('src', `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`);
+  iconDisplay.setAttribute('src', `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`);
   nameIcon.appendChild(iconDisplay);
 
   var temp = document.createElement('p');
@@ -228,7 +228,7 @@ var imdbGetMovie = function(weatherID) {
                     let nameGenre = imdbSelGenre[0].toUpperCase() + imdbSelGenre.slice(1);
 
                     // changes movie rec heading
-                    $("#movie-rec").html("Feels like " + nameGenre + "! <img src='http://openweathermap.org/img/wn/" + weatherID + "@2x.png' width='45' alt='weather icon'/>");
+                    $("#movie-rec").html("Feels like " + nameGenre + "! <img src='https://openweathermap.org/img/wn/" + weatherID + "@2x.png' width='45' alt='weather icon'/>");
 
                     // loops through all results to generate html content
                     for (var i = 0; i < data.results.length; i++) {

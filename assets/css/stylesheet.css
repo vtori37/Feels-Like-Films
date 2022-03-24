@@ -25,6 +25,7 @@ h4 {
 p {
   font-size: 15px;
 }
+
 nav .brand-logo {
   font-size:20px;
   padding-left: 35px;
@@ -33,11 +34,19 @@ nav .brand-logo {
 .nav-wrapper {
   margin-bottom:0;
 }
+
+.header-title {
+  font-size:25px;
+  font-weight: 100;
+}
+
+.header-div {
+  width:100%;
+  height: 200px;
+  display:flex;
+  justify-content: center;
+}
 .hero {
-  /* background: rgb(255,179,85);
-background: radial-gradient(circle, rgba(255,179,85,1) 15%, rgba(207,4,35,0.3533788515406162) 87%); */
-/* background: rgb(255,179,85);
-background: radial-gradient(circle, rgba(255,179,85,1) 52%, rgba(207,4,35,0.3533788515406162) 83%);*/
 border-bottom: 5px rgba(68, 65, 65, 0.713); 
 background: rgb(255,179,85);
 background: linear-gradient(0deg, rgba(255,179,85,1) 34%, rgba(210,94,77,100) 87%);
@@ -88,11 +97,7 @@ main {
   width: 60%;
 }
 aside {
-  width: 40%;
-  padding-left: .5rem;
-  margin-left: .5rem;
-  float: right;
-  box-shadow: inset 5px 0 5px -5px var(--main-yellow-orange);
+
   color: var(--main-yellow-orange);
   text-align: center;
 }
@@ -101,8 +106,14 @@ aside > p {
   margin: .5rem;
 }
 
-p {
-  font-family: 'Fira Sans', sans-serif;
+p.description {
+  font-weight: 100;
+}
+
+
+.modal {
+  max-height: 80%;
+  max-width: 20%;
 }
 .btn, .btn-large, .btn-small {
   background-color: var(--main-yellow);
@@ -193,18 +204,33 @@ p.movie-description {
 
 /* Media Queries */
 
-/* @media #{$small-and-down} {
-  // styles for small screens and down
+
+@media only screen and (max-width: 992px){
+  /* // styles for small screens and down */
+  .modal {
+    max-height: 100%;
+    max-width:50%;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  h3 {
+  font-size: 20px;
+  }
+  
+  h4 {
+    font-size: 12px;
+  }
+  
+  p {
+    font-size: 10px;
+  }
+
+
 }
-@media #{$medium-and-up} {
-  // styles for medium screens and larger
-}
-@media #{$medium-and-down} {
-  // styles for medium screens and down
-}
-@media #{$large-and-up} {
-  // styles for large screens and up
-}
-@media #{$extra-large-and-up} {
-  // styles for extra large screens and up
-} */
