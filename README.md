@@ -18,12 +18,13 @@ Here is a link to the deployed website:
 
 ## Technologies
 * HTML5
-* CSS 
+* CSS
+* JS 
 * Materialize CSS Framework
-* * JS
 * Moment.js
-* Open Weather Map API
-* IMDB API
+* [Open Weather Map API](#https://openweathermap.org/api)
+* [IMDB API](#https://imdb-api.com/)
+* [Creative Fabrica](#https://www.creativefabrica.com/product/movie-genres-rgb-color-icons-set/)
 
 
 ## Team Dev-estate Members
