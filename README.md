@@ -1,9 +1,11 @@
 # Project 1 - Team 6: Team Dev-astate
 
 ## Table of Contents 
-* [Website](#website)
-* [Contributors](#contributors)
+* [Description](#Description)
+* [Website](#Website)
 * [Technologies](#Technologies)
+* [Team Members](#Team Dev-estate Members)
+
 
 ## Description 
 Feels Like Films is a web applicaiton that allows users to get movie recommendations based on the current weather of a city. The genre of the recommendations correlates to the type of weather. Users can also choose to save the films they want onto a wish list.
@@ -17,9 +19,12 @@ Here is a link to the deployed website:
 ## Technologies
 * HTML5
 * CSS 
-* JS
-* Materialize
+* Materialize CSS Framework
+* * JS
 * Moment.js
+* Open Weather Map API
+* IMDB API
+
 
 ## Team Dev-estate Members
 * [Dylan Truong](https://github.com/Dylan-Truong)
