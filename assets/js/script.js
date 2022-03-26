@@ -270,16 +270,16 @@ var imdbDispMovies = function(movieObj, i) {
   
       // movie poster
       var moviePosterEl = document.createElement("img");
-      moviePosterEl.className = "movie-poster col s2 offset-s1";
+      moviePosterEl.className = "movie-poster col s10 offset-s1 m2 offset-m1";
       moviePosterEl.setAttribute("src", movieObj.image);
       moviePosterEl.setAttribute("alt", "movie poster");
       // I set an arbitary width to size the movie poster, can adjust as needed
-      moviePosterEl.setAttribute("width", "150");
+      moviePosterEl.setAttribute("width", "140");
       movDivEl.appendChild(moviePosterEl);
   
       // div box that holds text
       var descBoxEl = document.createElement("div");
-      descBoxEl.className = "col s8";
+      descBoxEl.className = "col s12 m8 ";
       movDivEl.appendChild(descBoxEl);
   
       // movie title
@@ -328,7 +328,7 @@ var imdbDispWatchlist = function(movieObj, i) {
 
     // movie poster
     var moviePosterEl = document.createElement("img");
-    moviePosterEl.className = "movie-poster col s2 offset-s1";
+    moviePosterEl.className = "movie-poster col s10 offset-s1 m2 offset-m1";
     moviePosterEl.setAttribute("src", movieObj.image);
     moviePosterEl.setAttribute("alt", "movie poster");
     // I set an arbitary width to size the movie poster, can adjust as needed
@@ -337,7 +337,7 @@ var imdbDispWatchlist = function(movieObj, i) {
 
     // div box that holds text
     var descBoxEl = document.createElement("div");
-    descBoxEl.className = "col s8";
+    descBoxEl.className = "col s12 m8";
     movDivEl.appendChild(descBoxEl);
 
     // movie title
