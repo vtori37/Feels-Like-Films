@@ -26,30 +26,13 @@ p {
   font-size: 15px;
 }
 
-nav .brand-logo {
-  font-size:20px;
-  padding-left: 35px;
-}
-
-.nav-wrapper {
-  margin-bottom:0;
-}
-
-.header-title {
-font-size: 20px;
-}
 
 nav ul a {
   font-size: 18px;
   font-weight: 100;
 }
 
-.header-div {
-  width:100%;
-  height: 200px;
-  display:flex;
-  justify-content: center;
-}
+
 .hero {
 border-bottom: 5px rgba(68, 65, 65, 0.713); 
 background: rgb(255,179,85);
@@ -98,7 +81,7 @@ article.row.line {
 }
 
 main {
-  width: 60%;
+  width: 70%;
 }
 aside {
 
@@ -139,28 +122,17 @@ h2.watch-list {
   margin-top: 5px;
 }
 
-#recommendations {
-  margin-left: 30px;
-}
 
-#recommendations .row {
-  margin-right: 0;
-}
+
+ #recommendations {
+  margin-bottom: 50px;
+} 
 
 .movie-rec-border {
   border: 2px solid rgb(197, 140, 53);
   border-radius: 10px;
   box-shadow: 20px 20px var(--main-yellow);
-  padding: 10px 0 10px 0;
-  margin-right: 50px;
   }
-
-
-/* .movie-recommendation li {
-border-bottom: 2px solid var(--main-yellow-orange);
-border-radius: 10px;
-padding: 15px 0 10px 0;
-} */
 
 
 .card {
@@ -188,13 +160,8 @@ p.movie-description {
   border: 2px solid rgb(197, 140, 53);
   border-radius: 10px;
   box-shadow: 20px 20px var(--main-yellow);
-  padding: 10px 0 10px 0;
-  margin-left: 30px;
 }
 
-.watchlist-border {
-  margin-left: 30px;
-}
 
 .watch-list {
   text-align: center;
@@ -227,7 +194,10 @@ width: auto;
 }
 }
 @media only screen and (max-width: 992px){
-  /* // styles for small screens and down */
+  nav .brand-logo {
+    font-size: 23px;
+  }
+
   .modal {
     max-height: 80%;
     max-width:50%;
@@ -253,5 +223,10 @@ width: auto;
     font-size: 10px;
   }
 
+}
 
+@media only screen and (min-width: 993px) {
+nav .brand-logo {
+  padding-left: 30px;
+}
 }
