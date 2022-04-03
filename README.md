@@ -8,7 +8,7 @@
 
 
 ## Description 
-Feels Like Films is a web applicaiton that allows users to get movie recommendations based on the current weather of a city. The genre of the recommendations correlates to the type of weather. Users can also choose to save the films they want onto a wish list.
+Feels Like Films is a web application that allows users to get movie recommendations based on the current weather of a city. The genre of the recommendations correlates to the type of weather. Users can also choose to save the films they want onto a wish list.
 
 ![Homepage](./assets/Images/Homepage.png)  <!-- Placeholder Image-->
 
