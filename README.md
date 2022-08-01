@@ -1,4 +1,4 @@
-# Project 1 - Team 6: Team Dev-astate
+# Feels Like Films
 
 ## Table of Contents 
 * [Description](#Description)
