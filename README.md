@@ -14,7 +14,7 @@ Feels Like Films is a web application that allows users to get movie recommendat
 
 ## Deployed Website
 Here is a link to the deployed website:
-[Feels Like Films](https://vtori37.github.io/Group-Project-1/)
+[Feels Like Films](https://vtori37.github.io/Feels-Like-Films/)
 
 ## Technologies
 * HTML5
